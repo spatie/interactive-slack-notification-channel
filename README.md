@@ -6,7 +6,7 @@
 
 This package allows you to send interactive Slack notifications. Here's how such an notification could look like
 
-![Slack notification](notification.png)
+![Slack notification](https://github.com/spatie/slack-api-notification-channel/blob/master/docs/images/notification.png)
 
 ## Support us
 
