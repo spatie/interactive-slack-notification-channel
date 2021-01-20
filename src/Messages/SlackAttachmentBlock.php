@@ -6,7 +6,6 @@ use Illuminate\Contracts\Support\Arrayable;
 
 class SlackAttachmentBlock implements Arrayable
 {
-
     public ?string $type = null;
 
     public ?string $text = null;
