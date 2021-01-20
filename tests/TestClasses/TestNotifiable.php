@@ -12,7 +12,7 @@ class TestNotifiable
     {
         return [
             'token' => 'xoxp-token',
-            'channel' => '#general'
+            'channel' => '#general',
         ];
     }
 }

@@ -3,15 +3,15 @@
 namespace Spatie\SlackApiNotificationChannel\Tests;
 
 use Illuminate\Http\Client\Request;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Http;
 use Spatie\SlackApiNotificationChannel\Channels\SlackApiChannel;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\TestNotifiable;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\TestNotification;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\NotificationWithDefaultChannel;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\NotificationWithImageIcon;
 use Spatie\SlackApiNotificationChannel\Tests\TestClasses\ChannelWithAttachmentFieldBuilderTestNotification;
 use Spatie\SlackApiNotificationChannel\Tests\TestClasses\ChannelWithoutOptionalFieldsTestNotification;
+use Spatie\SlackApiNotificationChannel\Tests\TestClasses\NotificationWithDefaultChannel;
+use Spatie\SlackApiNotificationChannel\Tests\TestClasses\NotificationWithImageIcon;
+use Spatie\SlackApiNotificationChannel\Tests\TestClasses\TestNotifiable;
+use Spatie\SlackApiNotificationChannel\Tests\TestClasses\TestNotification;
 
 class SlackApiChannelTest extends TestCase
 {
@@ -34,7 +34,7 @@ class SlackApiChannelTest extends TestCase
 
         (new SlackApiChannel())->send(new TestNotifiable, $notification);
 
-        Http::assertSent(function(Request $request) use ($payload) {
+        Http::assertSent(function (Request $request) use ($payload) {
             $this->assertEquals('POST', $request->method());
             $this->assertEquals('https://slack.com/api/chat.postMessage', $request->url());
 
@@ -198,7 +198,7 @@ class SlackApiChannelTest extends TestCase
                             ],
                         ],
                     ],
-                    'channel' => '#general'
+                    'channel' => '#general',
                 ],
             ],
         ];
@@ -234,7 +234,7 @@ class SlackApiChannelTest extends TestCase
                             ],
                         ],
                     ],
-                    'channel' => '#general'
+                    'channel' => '#general',
                 ],
             ],
         ];

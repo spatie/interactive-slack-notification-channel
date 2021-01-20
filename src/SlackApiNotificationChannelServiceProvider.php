@@ -2,9 +2,9 @@
 
 namespace Spatie\SlackApiNotificationChannel;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Notification;
 use Illuminate\Notifications\ChannelManager;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\ServiceProvider;
 
 class SlackApiNotificationChannelServiceProvider extends ServiceProvider
 {

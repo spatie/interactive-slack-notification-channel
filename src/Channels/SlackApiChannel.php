@@ -2,13 +2,11 @@
 
 namespace Spatie\SlackApiNotificationChannel\Channels;
 
-use Illuminate\Support\Facades\Http;
-use Spatie\SlackApiNotificationChannel\Messages\SlackAttachmentBlock;
-use GuzzleHttp\Client as HttpClient;
 use Illuminate\Notifications\Notification;
-use Spatie\SlackApiNotificationChannel\Messages\SlackMessage;
+use Illuminate\Support\Facades\Http;
 use Spatie\SlackApiNotificationChannel\Messages\SlackAttachment;
 use Spatie\SlackApiNotificationChannel\Messages\SlackAttachmentField;
+use Spatie\SlackApiNotificationChannel\Messages\SlackMessage;
 
 class SlackApiChannel
 {
@@ -20,7 +18,7 @@ class SlackApiChannel
 
     public function send(mixed $notifiable, Notification $notification)
     {
-        if (!$config = $notifiable->routeNotificationFor('slackApi', $notification)) {
+        if (! $config = $notifiable->routeNotificationFor('slackApi', $notification)) {
             return null;
         }
 
@@ -50,7 +48,7 @@ class SlackApiChannel
             'unfurl_media' => data_get($message, 'unfurlMedia'),
             'username' => data_get($message, 'username'),
             'thread_ts' => data_get($message, 'threadTimestamp'),
-            'reply_broadcast' => data_get($message, 'threadBroadcast')
+            'reply_broadcast' => data_get($message, 'threadBroadcast'),
         ]);
 
         $payload = [
@@ -120,7 +118,7 @@ class SlackApiChannel
     protected function blocks(SlackAttachment $attachment): array
     {
         return collect($attachment->blocks)
-            ->map(fn($value) => $value->toArray())
+            ->map(fn ($value) => $value->toArray())
             ->values()
             ->all();
     }
