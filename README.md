@@ -6,9 +6,9 @@
 
 **THIS PACKAGE IS STILL IN DEVELOPMENT**
 
-This package allows you to send interactive Slack notifications. Here's how such an notification could look like
+This package allows you to send interactive Slack notifications. Here's how such a notification could look like
 
-![Slack notification](https://github.com/spatie/interactive-slack-notification-channel/blob/master/docs/images/notification.png)
+<img src="https://github.com/spatie/interactive-slack-notification-channel/blob/master/docs/images/notification.png" width="300px" />
 
 ## Support us
 
