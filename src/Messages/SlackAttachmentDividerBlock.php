@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SlackApiNotificationChannel\Messages;
+namespace Spatie\InteractiveSlackNotificationChannel\Messages;
 
 class SlackAttachmentDividerBlock
 {

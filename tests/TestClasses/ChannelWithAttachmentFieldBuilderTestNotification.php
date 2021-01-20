@@ -1,13 +1,13 @@
 <?php
 
-namespace Spatie\SlackApiNotificationChannel\Tests\TestClasses;
+namespace Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses;
 
 use Illuminate\Notifications\Notification;
-use Spatie\SlackApiNotificationChannel\Messages\SlackMessage;
+use Spatie\InteractiveSlackNotificationChannel\Messages\SlackMessage;
 
 class ChannelWithAttachmentFieldBuilderTestNotification extends Notification
 {
-    public function toSlackApi($notifiable)
+    public function toInteractiveSlack($notifiable)
     {
         return (new SlackMessage)
             ->content('Content')

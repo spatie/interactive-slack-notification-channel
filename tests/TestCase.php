@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\SlackApiNotificationChannel\Tests;
+namespace Spatie\InteractiveSlackNotificationChannel\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\SlackApiNotificationChannel\SlackApiNotificationChannelServiceProvider;
+use Spatie\InteractiveSlackNotificationChannel\InteractiveSlackNotificationChannelServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -17,7 +17,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            SlackApiNotificationChannelServiceProvider::class,
+            InteractiveSlackNotificationChannelServiceProvider::class,
         ];
     }
 }

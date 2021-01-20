@@ -1,16 +1,16 @@
 # Send interactive Slack notifications in Laravel apps
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/slack-api-notification-channel.svg?style=flat-square)](https://packagist.org/packages/spatie/slack-api-notification-channel)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/spatie/slack-api-notification-channel/run-tests?label=tests)](https://github.com/spatie/slack-api-notification-channel/actions?query=workflow%3ATests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/spatie/slack-api-notification-channel.svg?style=flat-square)](https://packagist.org/packages/spatie/slack-api-notification-channel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/interactive-slack-notification-channel.svg?style=flat-square)](https://packagist.org/packages/spatie/interactive-slack-notification-channel)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/spatie/interactive-slack-notification-channel/run-tests?label=tests)](https://github.com/spatie/interactive-slack-notification-channel/actions?query=workflow%3ATests+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/spatie/interactive-slack-notification-channel.svg?style=flat-square)](https://packagist.org/packages/spatie/interactive-slack-notification-channel)
 
 This package allows you to send interactive Slack notifications. Here's how such an notification could look like
 
-![Slack notification](https://github.com/spatie/slack-api-notification-channel/blob/master/docs/images/notification.png)
+![Slack notification](https://github.com/spatie/interactive-slack-notification-channel/blob/master/docs/images/notification.png)
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-slack-api-notification-channel-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-slack-api-notification-channel-laravel)
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-interactive-slack-notification-channel-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-interactive-slack-notification-channel-laravel)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -21,19 +21,19 @@ We highly appreciate you sending us a postcard from your hometown, mentioning wh
 You can install the package via composer:
 
 ```bash
-composer require spatie/slack-api-notification-channel
+composer require spatie/interactive-slack-notification-channel
 ```
 
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\SlackApiNotificationChannel\SlackApiNotificationChannelServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Spatie\InteractiveSlackNotificationChannel\SlackApiNotificationChannelServiceProvider" --tag="migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Spatie\SlackApiNotificationChannel\SlackApiNotificationChannelServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Spatie\InteractiveSlackNotificationChannel\SlackApiNotificationChannelServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:
@@ -66,12 +66,12 @@ Using the SlackApi channels you can retrieve the API response from Slack's `chat
 Here's an example:
 
 ```php
-public function toSlackApi($notifiable)
+public function toInteractiveSlack($notifiable)
 {
     return (new SlackMessage)->content('A new order has been placed');
 }
 
-public function slackApiResponse(array $response)
+public function interactiveSlackResponse(array $response)
 {
     $response = $response->getBody()->getContents();
     
@@ -82,7 +82,7 @@ public function slackApiResponse(array $response)
 In your order paid event you can have
 
 ```php
-public function toSlackApi($notifiable)
+public function toInteractiveSlack($notifiable)
 {
     $order = $this->order;
     

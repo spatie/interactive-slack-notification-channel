@@ -1,11 +1,11 @@
 {
-    "name": "spatie/slack-api-notification-channel",
+    "name": "spatie/interactive-slack-notification-channel",
     "description": "Send interactive Slack notifications in Laravel apps",
     "keywords": [
         "spatie",
-        "slack-api-notification-channel"
+        "interactive-slack-notification-channel"
     ],
-    "homepage": "https://github.com/spatie/slack-api-notification-channel",
+    "homepage": "https://github.com/spatie/interactive-slack-notification-channel",
     "license": "MIT",
     "authors": [
         {
@@ -29,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\SlackApiNotificationChannel\\": "src"
+            "Spatie\\InteractiveSlackNotificationChannel\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\SlackApiNotificationChannel\\Tests\\": "tests"
+            "Spatie\\InteractiveSlackNotificationChannel\\Tests\\": "tests"
         }
     },
     "scripts": {

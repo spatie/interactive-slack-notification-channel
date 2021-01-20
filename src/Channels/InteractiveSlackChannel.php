@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\SlackApiNotificationChannel\Channels;
+namespace Spatie\InteractiveSlackNotificationChannel\Channels;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
-use Spatie\SlackApiNotificationChannel\Messages\SlackAttachment;
-use Spatie\SlackApiNotificationChannel\Messages\SlackAttachmentField;
-use Spatie\SlackApiNotificationChannel\Messages\SlackMessage;
+use Spatie\InteractiveSlackNotificationChannel\Messages\SlackAttachment;
+use Spatie\InteractiveSlackNotificationChannel\Messages\SlackAttachmentField;
+use Spatie\InteractiveSlackNotificationChannel\Messages\SlackMessage;
 
-class SlackApiChannel
+class InteractiveSlackChannel
 {
     const API_ENDPOINT = 'https://slack.com/api/chat.postMessage';
 
@@ -26,12 +26,12 @@ class SlackApiChannel
 
         $this->channel = $config['channel'] ?? null;
 
-        $payload = $this->buildJsonPayload($notification->toSlackApi($notifiable));
+        $payload = $this->buildJsonPayload($notification->toInteractiveSlack($notifiable));
 
         $response = Http::post(self::API_ENDPOINT, $payload);
 
-        if (method_exists($notification, 'slackApiResponse')) {
-            return $notification->slackApiResponse($response->json() ?? []);
+        if (method_exists($notification, 'interactiveSlackResponse')) {
+            return $notification->interactiveSlackResponse($response->json() ?? []);
         }
 
         return $response;
@@ -99,7 +99,7 @@ class SlackApiChannel
     /**
      * Format the attachment's fields.
      *
-     * @param \Spatie\SlackApiNotificationChannel\Messages\SlackAttachment $attachment
+     * @param \Spatie\InteractiveSlackNotificationChannel\Messages\SlackAttachment $attachment
      *
      * @return array
      */

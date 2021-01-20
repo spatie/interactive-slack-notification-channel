@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\SlackApiNotificationChannel\Tests\TestClasses;
+namespace Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses;
 
 use Illuminate\Notifications\Notifiable;
 

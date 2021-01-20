@@ -1,19 +1,19 @@
 <?php
 
-namespace Spatie\SlackApiNotificationChannel\Tests;
+namespace Spatie\InteractiveSlackNotificationChannel\Tests;
 
 use Illuminate\Http\Client\Request;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
-use Spatie\SlackApiNotificationChannel\Channels\SlackApiChannel;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\ChannelWithAttachmentFieldBuilderTestNotification;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\ChannelWithoutOptionalFieldsTestNotification;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\NotificationWithDefaultChannel;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\NotificationWithImageIcon;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\TestNotifiable;
-use Spatie\SlackApiNotificationChannel\Tests\TestClasses\TestNotification;
+use Spatie\InteractiveSlackNotificationChannel\Channels\InteractiveSlackChannel;
+use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\ChannelWithAttachmentFieldBuilderTestNotification;
+use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\ChannelWithoutOptionalFieldsTestNotification;
+use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\NotificationWithDefaultChannel;
+use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\NotificationWithImageIcon;
+use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\TestNotifiable;
+use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\TestNotification;
 
-class SlackApiChannelTest extends TestCase
+class InteractiveSlackChannelTest extends TestCase
 {
     /**
      * @test
@@ -32,7 +32,7 @@ class SlackApiChannelTest extends TestCase
         });
         */
 
-        (new SlackApiChannel())->send(new TestNotifiable, $notification);
+        (new InteractiveSlackChannel())->send(new TestNotifiable, $notification);
 
         Http::assertSent(function (Request $request) use ($payload) {
             $this->assertEquals('POST', $request->method());
