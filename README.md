@@ -12,9 +12,12 @@ This package allows you to send interactive Slack notifications. Here's how such
 
 [<img src="https://github-ads.s3.eu-central-1.amazonaws.com/package-interactive-slack-notification-channel-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/package-interactive-slack-notification-channel-laravel)
 
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
+We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can
+support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
+You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards
+on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -32,6 +35,7 @@ php artisan migrate
 ```
 
 You can publish the config file with:
+
 ```bash
 php artisan vendor:publish --provider="Spatie\InteractiveSlackNotificationChannel\SlackApiNotificationChannelServiceProvider" --tag="config"
 ```
@@ -45,7 +49,8 @@ return [
 
 ## Usage
 
-In your `Notifiable` classes you should add a method named `routeNotificationForSlackApi` that returns an array with the API token, an optionally the channel name
+In your `Notifiable` classes you should add a method named `routeNotificationForSlackApi` that returns an array with the
+API token, an optionally the channel name
 
 ```php
 public function routeNotificationForSlackApi()
@@ -57,24 +62,26 @@ public function routeNotificationForSlackApi()
 }
 ```
 
-### Replying to Message Threads
+### Replying to message threads
 
-Let's assume you want your application to send a Slack notification when an order gets placed. You also want any subsequent messages about the order be place in the same thread. 
+Let's assume you want your application to send a Slack notification when an order gets placed. You also want any
+subsequent messages about the order be place in the same thread.
 
-Using the SlackApi channels you can retrieve the API response from Slack's `chat.postMessage` method. With this response you could post messages on other events that happen on the order, such as order paid, shipped, closed, etc.
+Using the SlackApi channels you can retrieve the API response from Slack's `chat.postMessage` method. With this response
+you could post messages on other events that happen on the order, such as order paid, shipped, closed, etc.
 
 Here's an example:
 
 ```php
+use Spatie\InteractiveSlackNotificationChannel\Messages\SlackMessage
+
 public function toInteractiveSlack($notifiable)
 {
     return (new SlackMessage)->content('A new order has been placed');
 }
 
 public function interactiveSlackResponse(array $response)
-{
-    $response = $response->getBody()->getContents();
-    
+{    
     $this->order->update(['slack_thread_ts' => $response['ts']]);
 }
 ```
@@ -82,19 +89,23 @@ public function interactiveSlackResponse(array $response)
 In your order paid event you can have
 
 ```php
+use Spatie\InteractiveSlackNotificationChannel\Messages\SlackMessage;
+use Spatie\InteractiveSlackNotificationChannel\Messages\SlackAttachment;
+
 public function toInteractiveSlack($notifiable)
 {
     $order = $this->order;
-    
+
     return (new SlackMessage)
         ->success()
         ->content('Order paid')
         ->threadTimestamp($order->slack_thread_ts)
-           ->attachment(function ($attachment) use ($order) {
-               $attachment->title("Order $order->reference has been paid for.")
-                          ->content('Should now be processed.')
-                          ->action('View Order', route('orders', $order->reference));
-           });
+        ->attachment(function(SlackAttachment $attachment) use ($order) {
+           $attachment
+                ->title("Order $order->reference has been paid for.")
+                ->content('Should now be processed.')
+                ->action('View Order', route('orders', $order->reference));
+       });
 }
 ```
 

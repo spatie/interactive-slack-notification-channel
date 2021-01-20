@@ -6,7 +6,6 @@ class SlackAttachmentField
 {
     protected ?string $title = null;
 
-
     protected ?string $content = null;
 
     protected bool $short = true;
