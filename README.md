@@ -4,6 +4,8 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/spatie/interactive-slack-notification-channel/run-tests?label=tests)](https://github.com/spatie/interactive-slack-notification-channel/actions?query=workflow%3ATests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/interactive-slack-notification-channel.svg?style=flat-square)](https://packagist.org/packages/spatie/interactive-slack-notification-channel)
 
+**THIS PACKAGE IS STILL IN DEVELOPMENT**
+
 This package allows you to send interactive Slack notifications. Here's how such an notification could look like
 
 ![Slack notification](https://github.com/spatie/interactive-slack-notification-channel/blob/master/docs/images/notification.png)
