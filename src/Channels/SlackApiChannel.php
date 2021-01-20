@@ -32,8 +32,8 @@ class SlackApiChannel
 
         $response = Http::post(self::API_ENDPOINT, $payload);
 
-        if (method_exists($notification, 'response')) {
-            return $notification->response($response);
+        if (method_exists($notification, 'slackApiResponse')) {
+            return $notification->slackApiResponse($response->json() ?? []);
         }
 
         return $response;
