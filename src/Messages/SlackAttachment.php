@@ -9,138 +9,43 @@ class SlackAttachment
 {
     use InteractsWithTime;
 
-    /**
-     * The attachment's title.
-     *
-     * @var string
-     */
-    public string $title;
+    public ?string $title = null;
 
-    /**
-     * The attachment's URL.
-     *
-     * @var string
-     */
-    public $url;
+    public ?string $url = null;
 
-    /**
-     * The attachment's pretext.
-     *
-     * @var string
-     */
-    public $pretext;
+    public ?string $pretext = null;
 
-    /**
-     * The attachment's text content.
-     *
-     * @var string
-     */
-    public $content;
+    public ?strin $content = null;
 
-    /**
-     * A plain-text summary of the attachment.
-     *
-     * @var string
-     */
-    public $fallback;
+    public ?string $fallback = null;
 
-    /**
-     * The attachment's color.
-     *
-     * @var string
-     */
-    public $color;
+    public ?string $color = null;
 
-    /**
-     * The attachment's callback id.
-     *
-     * @var string
-     */
-    public $callbackId;
+    public ?string $callbackId = null;
 
-    /**
-     * The attachment's fields.
-     *
-     * @var array
-     */
-    public $fields;
+    public array $fields = [];
 
-    /**
-     * The attachment's blocks.
-     *
-     * @var array
-     */
-    public $blocks;
+    public array $blocks = [];
 
-    /**
-     * The fields containing markdown.
-     *
-     * @var array
-     */
-    public $markdown;
+    public array $markdown = [];
 
-    /**
-     * The attachment's image url.
-     *
-     * @var string
-     */
-    public $imageUrl;
+    public ?string $imageUrl = null;
 
-    /**
-     * The attachment's thumb url.
-     *
-     * @var string
-     */
-    public $thumbUrl;
+    public ?string $thumbUrl = null;
 
-    /**
-     * The attachment's actions.
-     *
-     * @var array
-     */
-    public $actions = [];
+    public array $actions = [];
 
-    /**
-     * The attachment author's name.
-     *
-     * @var string
-     */
-    public $authorName;
+    public ?string $authorName = null;
 
-    /**
-     * The attachment author's link.
-     *
-     * @var string
-     */
-    public $authorLink;
+    public ?string $authorLink = null;
 
-    /**
-     * The attachment author's icon.
-     *
-     * @var string
-     */
-    public $authorIcon;
+    public ?string $authorIcon = null;
 
-    /**
-     * The attachment's footer.
-     *
-     * @var string
-     */
-    public $footer;
+    public ?string $footer = null;
 
-    /**
-     * The attachment's footer icon.
-     *
-     * @var string
-     */
-    public $footerIcon;
+    public ?string $footerIcon = null;
 
-    /**
-     * The attachment's timestamp.
-     *
-     * @var int
-     */
-    public $timestamp;
+    public ?int $timestamp = null;
 
     public function title(string $title, string $url = null): self
     {
