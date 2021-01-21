@@ -18,7 +18,7 @@ class InteractiveSlackChannel
 
     public function send(mixed $notifiable, Notification $notification)
     {
-        if (! $config = $notifiable->routeNotificationFor('slackApi', $notification)) {
+        if (! $config = $notifiable->routeNotificationFor('interactiveSlack', $notification)) {
             return null;
         }
 

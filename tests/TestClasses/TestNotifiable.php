@@ -8,7 +8,7 @@ class TestNotifiable
 {
     use Notifiable;
 
-    public function routeNotificationForSlackApi()
+    public function routeNotificationForInteractiveSlack()
     {
         return [
             'token' => 'xoxp-token',
