@@ -28,7 +28,7 @@ class InteractiveSlackChannel
 
         $payload = $this->buildJsonPayload($notification->toInteractiveSlack($notifiable));
 
-        $response = Http::post(self::API_ENDPOINT, $payload);
+        $response = Http::withHeaders($payload['headers'])->post(self::API_ENDPOINT, $payload['json']);
 
         if (method_exists($notification, 'interactiveSlackResponse')) {
             return $notification->interactiveSlackResponse($response->json() ?? []);
