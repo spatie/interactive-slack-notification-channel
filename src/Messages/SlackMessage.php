@@ -8,18 +8,17 @@ use DateTimeInterface;
 
 class SlackMessage
 {
-
     public string $level = 'info';
 
-    public ?string $username;
+    public ?string $username = null;
 
-    public ?string $icon;
+    public ?string $icon = null;
 
-    public ?string $image;
+    public ?string $image = null;
 
-    public ?string $channel;
+    public ?string $channel = null;
 
-    public ?string $content;
+    public ?string $content = null;
 
     public bool $linkNames = false;
 

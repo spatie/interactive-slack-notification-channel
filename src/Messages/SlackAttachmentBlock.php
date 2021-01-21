@@ -20,7 +20,7 @@ class SlackAttachmentBlock implements Arrayable
 
     public ?string $altText = null;
 
-    public string $title;
+    public ?string $title = null;
 
     public array $elements = [];
 
