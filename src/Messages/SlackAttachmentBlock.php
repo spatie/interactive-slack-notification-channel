@@ -8,7 +8,7 @@ class SlackAttachmentBlock implements Arrayable
 {
     public ?string $type = null;
 
-    public ?string $text = null;
+    public array $text = [];
 
     public ?string $id = null;
 
@@ -31,7 +31,7 @@ class SlackAttachmentBlock implements Arrayable
         return $this;
     }
 
-    public function text(string $text): self
+    public function text(array $text): self
     {
         $this->text = $text;
 
