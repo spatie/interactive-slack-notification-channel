@@ -2,18 +2,17 @@
 
 namespace Spatie\InteractiveSlackNotificationChannel;
 
-use Illuminate\Notifications\ChannelManager;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\ServiceProvider;
+use Spatie\InteractiveSlackNotificationChannel\Channels\InteractiveSlackChannel;
 
 class InteractiveSlackNotificationChannelServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        Notification::resolved(function (ChannelManager $service) {
-            $service->extend('slack', function ($app) {
-                return new Channels\InteractiveSlackChannel();
-            });
+        Notification::extend('interactiveSlack', static function (Container $app) {
+            return $app->make(InteractiveSlackChannel::class);
         });
     }
 }

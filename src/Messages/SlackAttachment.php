@@ -15,7 +15,7 @@ class SlackAttachment
 
     public ?string $pretext = null;
 
-    public ?strin $content = null;
+    public ?string $content = null;
 
     public ?string $fallback = null;
 
