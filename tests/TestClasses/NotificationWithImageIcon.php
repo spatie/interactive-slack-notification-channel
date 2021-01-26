@@ -3,8 +3,6 @@
 namespace Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses;
 
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Carbon;
-use Mockery as m;
 use Spatie\InteractiveSlackNotificationChannel\Messages\SlackMessage;
 
 class NotificationWithImageIcon extends Notification
@@ -17,8 +15,6 @@ class NotificationWithImageIcon extends Notification
             ->to('#ghost-talk')
             ->content('Content')
             ->attachment(function ($attachment) {
-                $timestamp = m::mock(Carbon::class);
-                $timestamp->shouldReceive('getTimestamp')->andReturn(3155673600);
                 $attachment->title('Laravel', 'https://laravel.com')
                     ->content('Attachment Content')
                     ->fallback('Attachment Fallback')
@@ -28,7 +24,7 @@ class NotificationWithImageIcon extends Notification
                     ->footer('Laravel')
                     ->footerIcon('https://laravel.com/fake.png')
                     ->markdown(['text'])
-                    ->timestamp($timestamp);
+                    ->timestamp(now()->timestamp);
             });
     }
 }
