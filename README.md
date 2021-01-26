@@ -1,7 +1,7 @@
 # Send interactive Slack notifications in Laravel apps
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/interactive-slack-notification-channel.svg?style=flat-square)](https://packagist.org/packages/spatie/interactive-slack-notification-channel)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/spatie/interactive-slack-notification-channel/run-tests?label=tests)](https://github.com/spatie/interactive-slack-notification-channel/actions?query=workflow%3ATests+branch%3Amaster)
+![Tests](https://github.com/spatie/interactive-slack-notification-channel/workflows/Tests/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/interactive-slack-notification-channel.svg?style=flat-square)](https://packagist.org/packages/spatie/interactive-slack-notification-channel)
 
 This package allows you to send interactive Slack notifications. Here's how such a notification could look like
