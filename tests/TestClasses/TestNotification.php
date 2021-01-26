@@ -16,8 +16,6 @@ class TestNotification extends Notification
             ->to('#ghost-talk')
             ->content('Content')
             ->attachment(function ($attachment) {
-                $timestamp = m::mock(Carbon::class);
-                $timestamp->shouldReceive('getTimestamp')->andReturn(1234567890);
                 $attachment->title('Laravel', 'https://laravel.com')
                     ->content('Attachment Content')
                     ->fallback('Attachment Fallback')
@@ -28,7 +26,7 @@ class TestNotification extends Notification
                     ->footerIcon('https://laravel.com/fake.png')
                     ->markdown(['text'])
                     ->author('Author', 'https://laravel.com/fake_author', 'https://laravel.com/fake_author.png')
-                    ->timestamp($timestamp);
+                    ->timestamp(now()->timestamp);
             });
     }
 }

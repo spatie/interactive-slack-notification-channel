@@ -17,7 +17,7 @@ class NotificationWithDefaultChannel extends Notification
             ->content('Content')
             ->attachment(function ($attachment) {
                 $timestamp = m::mock(Carbon::class);
-                $timestamp->shouldReceive('getTimestamp')->andReturn(1234567890);
+                $timestamp->shouldReceive('getTimestamp')->andReturn(3155673600);
                 $attachment->title('Laravel', 'https://laravel.com')
                     ->content('Attachment Content')
                     ->fallback('Attachment Fallback')
