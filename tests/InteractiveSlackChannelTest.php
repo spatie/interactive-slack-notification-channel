@@ -23,14 +23,6 @@ class InteractiveSlackChannelTest extends TestCase
     public function it_can_send_the_correct_payload_to_slack(Notification $notification, array $payload)
     {
         Http::fake(['*' => Http::response(json_encode($payload))]);
-        /*
-        $this->guzzleHttp->shouldReceive('post')->andReturnUsing(function ($argUrl, $argPayload) use ($payload) {
-            $this->assertEquals($argUrl, 'https://slack.com/api/chat.postMessage');
-            $this->assertEquals($argPayload, $payload);
-
-            return new Response(200, [], json_encode($payload));
-        });
-        */
 
         (new InteractiveSlackChannel())->send(new TestNotifiable, $notification);
 
@@ -39,7 +31,8 @@ class InteractiveSlackChannelTest extends TestCase
             $this->assertEquals('https://slack.com/api/chat.postMessage', $request->url());
 
             $requestJson = json_decode($request->body(), true);
-            $this->assertEquals($payload, $requestJson);
+
+            $this->assertEqualsCanonicalizing($payload['json'], $requestJson);
 
             return true;
         });
