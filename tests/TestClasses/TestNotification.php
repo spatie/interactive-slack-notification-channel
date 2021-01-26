@@ -3,8 +3,6 @@
 namespace Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses;
 
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Carbon;
-use Mockery as m;
 use Spatie\InteractiveSlackNotificationChannel\Messages\SlackMessage;
 
 class TestNotification extends Notification
