@@ -27,26 +27,6 @@ You can install the package via composer:
 composer require spatie/interactive-slack-notification-channel
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --provider="Spatie\InteractiveSlackNotificationChannel\InteractiveSlackNotificationChannelServiceProvider" --tag="migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --provider="Spatie\InteractiveSlackNotificationChannel\InteractiveSlackNotificationChannelServiceProvider" --tag="config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
 ## Usage
 
 In your `Notifiable` classes you should add a method named `routeNotificationForSlackApi` that returns an array with the
