@@ -91,7 +91,7 @@ class SlackAttachment
         return $this;
     }
 
-    public function field(Closure|string $title, string $content = ''): self
+    public function field(Closure | string $title, string $content = ''): self
     {
         if (is_callable($title)) {
             $callback = $title;
@@ -136,7 +136,7 @@ class SlackAttachment
         return $this;
     }
 
-    public function action(string $title,string  $url, string $style = ''): self
+    public function action(string $title, string  $url, string $style = ''): self
     {
         $this->actions[] = [
             'type' => 'button',
@@ -148,7 +148,7 @@ class SlackAttachment
         return $this;
     }
 
-    public function button(string $title,string  $name, string $value, string $style = ''): self
+    public function button(string $title, string  $name, string $value, string $style = ''): self
     {
         $this->actions[] = [
             'type' => 'button',
@@ -199,7 +199,7 @@ class SlackAttachment
         return $this;
     }
 
-    public function timestamp(\DateTimeInterface|\DateInterval|int $timestamp): self
+    public function timestamp(\DateTimeInterface | \DateInterval | int $timestamp): self
     {
         $this->timestamp = $this->availableAt($timestamp);
 
