@@ -58,9 +58,8 @@ class InteractiveSlackChannel
             ], $optionalFields),
         ];
 
-
         $payload['headers'] = [
-            'Content-type' => 'application/json',
+            'Content-Type' => 'application/json; charset=UTF-8',
             'Authorization' => 'Bearer ' . $this->token,
         ];
 
