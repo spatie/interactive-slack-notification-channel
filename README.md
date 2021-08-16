@@ -29,11 +29,11 @@ composer require spatie/interactive-slack-notification-channel
 
 ## Usage
 
-In your `Notifiable` classes you should add a method named `routeNotificationForSlackApi` that returns an array with the
+In your `Notifiable` classes you should add a method named `routeNotificationForInteractiveSlack` that returns an array with the
 API token, an optionally the channel name
 
 ```php
-public function routeNotificationForSlackApi()
+public function routeNotificationForInteractiveSlack()
 {
     return [
         'token' => 'xoxp-slack-token',

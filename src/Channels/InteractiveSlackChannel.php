@@ -31,6 +31,10 @@ class InteractiveSlackChannel
         $response = Http::withHeaders($payload['headers'])->post(self::API_ENDPOINT, $payload['json']);
 
         if (method_exists($notification, 'interactiveSlackResponse')) {
+            if (($response->json('ok')) !== true) {
+                throw new \RuntimeException('Unexpected response from Slack: '.$response->body());
+            }
+
             return $notification->interactiveSlackResponse($response->json() ?? []);
         }
 
@@ -58,9 +62,8 @@ class InteractiveSlackChannel
             ], $optionalFields),
         ];
 
-
         $payload['headers'] = [
-            'Content-type' => 'application/json',
+            'Content-Type' => 'application/json; charset=UTF-8',
             'Authorization' => 'Bearer ' . $this->token,
         ];
 
