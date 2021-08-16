@@ -33,7 +33,7 @@ In your `Notifiable` classes you should add a method named `routeNotificationFor
 API token, an optionally the channel name
 
 ```php
-public function routeNotificationForSlackApi()
+public function routeNotificationForInteractiveSlack()
 {
     return [
         'token' => 'xoxp-slack-token',
