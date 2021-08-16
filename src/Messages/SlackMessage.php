@@ -147,7 +147,7 @@ class SlackMessage
         return $this;
     }
 
-    public function threadTimestamp(DateTimeInterface | DateInterval | int $threadTimestamp): self
+    public function threadTimestamp(string $threadTimestamp): self
     {
         $this->threadTimestamp = $threadTimestamp;
 
