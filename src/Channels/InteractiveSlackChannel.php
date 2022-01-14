@@ -10,7 +10,7 @@ use Spatie\InteractiveSlackNotificationChannel\Messages\SlackMessage;
 
 class InteractiveSlackChannel
 {
-    const API_ENDPOINT = 'https://slack.com/api/chat.postMessage';
+    public const API_ENDPOINT = 'https://slack.com/api/chat.postMessage';
 
     protected ?string $token = null;
 

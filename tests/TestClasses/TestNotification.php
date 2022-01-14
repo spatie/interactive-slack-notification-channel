@@ -9,7 +9,7 @@ class TestNotification extends Notification
 {
     public function toInteractiveSlack($notifiable)
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->from('Ghostbot', ':ghost:')
             ->to('#ghost-talk')
             ->content('Content')

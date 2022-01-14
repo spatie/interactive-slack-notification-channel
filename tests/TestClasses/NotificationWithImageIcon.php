@@ -9,7 +9,7 @@ class NotificationWithImageIcon extends Notification
 {
     public function toInteractiveSlack($notifiable)
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->from('Ghostbot')
             ->image('http://example.com/image.png')
             ->to('#ghost-talk')

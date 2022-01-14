@@ -9,7 +9,7 @@ class ChannelWithoutOptionalFieldsTestNotification extends Notification
 {
     public function toInteractiveSlack($notifiable)
     {
-        return (new SlackMessage)
+        return (new SlackMessage())
             ->content('Content')
             ->attachment(function ($attachment) {
                 $attachment->title('Laravel', 'https://laravel.com')

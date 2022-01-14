@@ -3,8 +3,6 @@
 namespace Spatie\InteractiveSlackNotificationChannel\Messages;
 
 use Closure;
-use DateInterval;
-use DateTimeInterface;
 
 class SlackMessage
 {
