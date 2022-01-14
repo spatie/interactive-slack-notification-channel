@@ -96,7 +96,7 @@ class SlackAttachment
         if (is_callable($title)) {
             $callback = $title;
 
-            $callback($attachmentField = new SlackAttachmentField);
+            $callback($attachmentField = new SlackAttachmentField());
 
             $this->fields[] = $attachmentField;
 

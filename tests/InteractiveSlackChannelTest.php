@@ -24,7 +24,7 @@ class InteractiveSlackChannelTest extends TestCase
     {
         Http::fake(['*' => Http::response(json_encode($payload))]);
 
-        (new InteractiveSlackChannel())->send(new TestNotifiable, $notification);
+        (new InteractiveSlackChannel())->send(new TestNotifiable(), $notification);
 
         Http::assertSent(function (Request $request) use ($payload) {
             $this->assertEquals('POST', $request->method());
@@ -52,7 +52,7 @@ class InteractiveSlackChannelTest extends TestCase
     protected function getPayloadWithIcon()
     {
         return [
-            new TestNotification,
+            new TestNotification(),
             [
                 'headers' => [
                     'Content-type' => 'application/json',
@@ -93,7 +93,7 @@ class InteractiveSlackChannelTest extends TestCase
     protected function getPayloadWithImageIcon(): array
     {
         return [
-            new NotificationWithImageIcon,
+            new NotificationWithImageIcon(),
             [
                 'headers' => [
                     'Content-type' => 'application/json',
@@ -131,7 +131,7 @@ class InteractiveSlackChannelTest extends TestCase
     protected function getPayloadWithDefaultChannel(): array
     {
         return [
-            new NotificationWithDefaultChannel,
+            new NotificationWithDefaultChannel(),
             [
                 'headers' => [
                     'Content-type' => 'application/json',
@@ -169,7 +169,7 @@ class InteractiveSlackChannelTest extends TestCase
     protected function getPayloadWithoutOptionalFields(): array
     {
         return [
-            new ChannelWithoutOptionalFieldsTestNotification,
+            new ChannelWithoutOptionalFieldsTestNotification(),
             [
                 'headers' => [
                     'Content-type' => 'application/json',
@@ -200,7 +200,7 @@ class InteractiveSlackChannelTest extends TestCase
     protected function getPayloadWithAttachmentFieldBuilder(): array
     {
         return [
-            new ChannelWithAttachmentFieldBuilderTestNotification,
+            new ChannelWithAttachmentFieldBuilderTestNotification(),
             [
                 'headers' => [
                     'Content-type' => 'application/json',
