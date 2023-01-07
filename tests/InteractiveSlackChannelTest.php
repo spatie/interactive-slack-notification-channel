@@ -6,12 +6,14 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
 use Spatie\InteractiveSlackNotificationChannel\Channels\InteractiveSlackChannel;
+use Spatie\InteractiveSlackNotificationChannel\Exceptions\SlackRespondedWithError;
 use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\ChannelWithAttachmentFieldBuilderTestNotification;
 use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\ChannelWithoutOptionalFieldsTestNotification;
 use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\NotificationWithDefaultChannel;
 use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\NotificationWithImageIcon;
 use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\TestNotifiable;
 use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\TestNotification;
+use Spatie\InteractiveSlackNotificationChannel\Tests\TestClasses\TestNotificationWithInteractiveSlackResponseMethod;
 
 class InteractiveSlackChannelTest extends TestCase
 {
@@ -22,7 +24,7 @@ class InteractiveSlackChannelTest extends TestCase
      */
     public function it_can_send_the_correct_payload_to_slack(Notification $notification, array $payload)
     {
-        Http::fake(['*' => Http::response(json_encode($payload))]);
+        Http::fake(['*' => Http::response(json_encode(['ok' => true]))]);
 
         (new InteractiveSlackChannel())->send(new TestNotifiable(), $notification);
 
@@ -36,6 +38,16 @@ class InteractiveSlackChannelTest extends TestCase
 
             return true;
         });
+    }
+
+    /** @test */
+    public function it_will_throw_an_exception_if_slack_does_not_respond_ok_and_the_notification_has_the_correct_method()
+    {
+        Http::fake(['*' => Http::response(json_encode(['ok' => false]))]);
+
+        $this->expectException(SlackRespondedWithError::class);
+
+        (new InteractiveSlackChannel())->send(new TestNotifiable(), new TestNotificationWithInteractiveSlackResponseMethod());
     }
 
     public function payloadDataProvider(): array
