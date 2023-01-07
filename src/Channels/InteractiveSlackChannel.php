@@ -4,7 +4,6 @@ namespace Spatie\InteractiveSlackNotificationChannel\Channels;
 
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
-use RuntimeException;
 use Spatie\InteractiveSlackNotificationChannel\Exceptions\SlackRespondedWithError;
 use Spatie\InteractiveSlackNotificationChannel\Messages\SlackAttachment;
 use Spatie\InteractiveSlackNotificationChannel\Messages\SlackAttachmentField;
