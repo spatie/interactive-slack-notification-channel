@@ -2,6 +2,10 @@
 
 All notable changes to `interactive-slack-notification-channel` will be documented in this file.
 
+## 1.2.0 - 2024-03-08
+
+**Full Changelog**: https://github.com/spatie/interactive-slack-notification-channel/compare/1.1.2...1.2.0
+
 ## 1.1.2 - 2023-01-23
 
 - update for L10
