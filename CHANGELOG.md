@@ -2,6 +2,18 @@
 
 All notable changes to `interactive-slack-notification-channel` will be documented in this file.
 
+## 1.3.0 - 2025-04-08
+
+### What's Changed
+
+* add laravel 12 support by @resohead in https://github.com/spatie/interactive-slack-notification-channel/pull/8
+
+### New Contributors
+
+* @resohead made their first contribution in https://github.com/spatie/interactive-slack-notification-channel/pull/8
+
+**Full Changelog**: https://github.com/spatie/interactive-slack-notification-channel/compare/1.2.0...1.3.0
+
 ## 1.2.0 - 2024-03-08
 
 **Full Changelog**: https://github.com/spatie/interactive-slack-notification-channel/compare/1.1.2...1.2.0
