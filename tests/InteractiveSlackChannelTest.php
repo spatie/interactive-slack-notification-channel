@@ -50,18 +50,18 @@ class InteractiveSlackChannelTest extends TestCase
         (new InteractiveSlackChannel())->send(new TestNotifiable(), new TestNotificationWithInteractiveSlackResponseMethod());
     }
 
-    public function payloadDataProvider(): array
+    public static function payloadDataProvider(): array
     {
         return [
-            'payloadWithIcon' => $this->getPayloadWithIcon(),
-            'payloadWithImageIcon' => $this->getPayloadWithImageIcon(),
-            'payloadWithDefaultChannel' => $this->getPayloadWithDefaultChannel(),
-            'payloadWithoutOptionalFields' => $this->getPayloadWithoutOptionalFields(),
-            'payloadWithAttachmentFieldBuilder' => $this->getPayloadWithAttachmentFieldBuilder(),
+            'payloadWithIcon' => self::getPayloadWithIcon(),
+            'payloadWithImageIcon' => self::getPayloadWithImageIcon(),
+            'payloadWithDefaultChannel' => self::getPayloadWithDefaultChannel(),
+            'payloadWithoutOptionalFields' => self::getPayloadWithoutOptionalFields(),
+            'payloadWithAttachmentFieldBuilder' => self::getPayloadWithAttachmentFieldBuilder(),
         ];
     }
 
-    protected function getPayloadWithIcon()
+    protected static function getPayloadWithIcon()
     {
         return [
             new TestNotification(),
@@ -102,7 +102,7 @@ class InteractiveSlackChannelTest extends TestCase
         ];
     }
 
-    protected function getPayloadWithImageIcon(): array
+    protected static function getPayloadWithImageIcon(): array
     {
         return [
             new NotificationWithImageIcon(),
@@ -140,7 +140,7 @@ class InteractiveSlackChannelTest extends TestCase
         ];
     }
 
-    protected function getPayloadWithDefaultChannel(): array
+    protected static function getPayloadWithDefaultChannel(): array
     {
         return [
             new NotificationWithDefaultChannel(),
@@ -178,7 +178,7 @@ class InteractiveSlackChannelTest extends TestCase
         ];
     }
 
-    protected function getPayloadWithoutOptionalFields(): array
+    protected static function getPayloadWithoutOptionalFields(): array
     {
         return [
             new ChannelWithoutOptionalFieldsTestNotification(),
@@ -209,7 +209,7 @@ class InteractiveSlackChannelTest extends TestCase
         ];
     }
 
-    protected function getPayloadWithAttachmentFieldBuilder(): array
+    protected static function getPayloadWithAttachmentFieldBuilder(): array
     {
         return [
             new ChannelWithAttachmentFieldBuilderTestNotification(),
