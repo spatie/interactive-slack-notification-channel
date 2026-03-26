@@ -2,6 +2,16 @@
 
 All notable changes to `interactive-slack-notification-channel` will be documented in this file.
 
+## 1.4.0 - 2026-03-26
+
+### What's Changed
+
+- Add Laravel 13 support
+- Drop Laravel 11 support
+- Migrate to Pest 4
+- Require PHP 8.3+
+- Fix static closure compatibility with PHP 8.5
+
 ## 1.3.0 - 2025-04-08
 
 ### What's Changed
