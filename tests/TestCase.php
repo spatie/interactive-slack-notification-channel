@@ -8,7 +8,7 @@ use Spatie\TestTime\TestTime;
 
 class TestCase extends Orchestra
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         ray()->newScreen('Test');
 
