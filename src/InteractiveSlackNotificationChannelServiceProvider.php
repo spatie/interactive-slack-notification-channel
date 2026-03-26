@@ -11,7 +11,7 @@ class InteractiveSlackNotificationChannelServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        Notification::extend('interactiveSlack', static function (Container $app) {
+        Notification::extend('interactiveSlack', function (Container $app) {
             return $app->make(InteractiveSlackChannel::class);
         });
     }
